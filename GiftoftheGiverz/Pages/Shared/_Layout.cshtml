@@ -1,0 +1,367 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
+    <title>
+        @ViewData["Title"] - Gift of the Givers
+    </title>
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-dark gog-navbar">
+
+            <div class="container">
+
+                <a class="navbar-brand d-flex align-items-center"
+                   asp-page="/Index">
+
+                    <div class="gog-logo">
+                        G
+                    </div>
+
+                    <div class="ms-2">
+
+                        <span class="gog-brand-name">
+                            Gift of the Givers
+                        </span>
+
+                        <small class="d-block gog-tagline">
+                            Humanitarian Relief
+                        </small>
+
+                    </div>
+
+                </a>
+
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#mainNavigation"
+                        aria-controls="mainNavigation"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+                <div class="collapse navbar-collapse"
+                     id="mainNavigation">
+
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                        <li class="nav-item">
+
+                            <a class="nav-link"
+                               asp-page="/Index">
+                                Home
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link"
+                               asp-page="/About/Index">
+                                About
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link"
+                               asp-page="/Donate/Index">
+                                Donate
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link"
+                               asp-page="/Volunteer/Index">
+                                Volunteer
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link"
+                               asp-page="/Contact/Index">
+                                Contact
+                            </a>
+
+                        </li>
+
+                        @if (User.Identity?.IsAuthenticated == true)
+                        {
+                            @if (User.IsInRole("Donor"))
+                            {
+                                <li class="nav-item dropdown">
+
+                                    <a class="nav-link dropdown-toggle"
+                                       href="#"
+                                       role="button"
+                                       data-bs-toggle="dropdown">
+
+                                        Donor
+                                    </a>
+
+                                    <ul class="dropdown-menu">
+
+                                        <li>
+
+                                            <a class="dropdown-item"
+                                               asp-page="/Donor/Donations/Create">
+                                                Make Donation
+                                            </a>
+
+                                        </li>
+
+                                        <li>
+
+                                            <a class="dropdown-item"
+                                               asp-page="/Donor/Donations/History">
+                                                Donation History
+                                            </a>
+
+                                        </li>
+
+                                    </ul>
+
+                                </li>
+                            }
+
+                            @if (User.IsInRole("Employee"))
+                            {
+                                <li class="nav-item dropdown">
+
+                                    <a class="nav-link dropdown-toggle"
+                                       href="#"
+                                       role="button"
+                                       data-bs-toggle="dropdown">
+
+                                        Employee
+                                    </a>
+
+                                    <ul class="dropdown-menu">
+
+                                        <li>
+
+                                            <a class="dropdown-item"
+                                               asp-page="/Employee/Dashboard">
+                                                Dashboard
+                                            </a>
+
+                                        </li>
+
+                                        <li>
+
+                                            <a class="dropdown-item"
+                                               asp-page="/Employee/Projects/Index">
+                                                Relief Projects
+                                            </a>
+
+                                        </li>
+
+                                        <li>
+
+                                            <a class="dropdown-item"
+                                               asp-page="/Employee/Volunteers/Dashboard">
+                                                Volunteers
+                                            </a>
+
+                                        </li>
+
+                                    </ul>
+
+                                </li>
+                            }
+
+                            <li class="nav-item">
+
+                                <form class="form-inline"
+                                      asp-area="Identity"
+                                      asp-page="/Account/Logout"
+                                      asp-route-returnUrl="@Url.Page("/Index")"
+                                      method="post">
+
+                                    <button type="submit"
+                                            class="btn btn-outline-light btn-sm ms-lg-2">
+
+                                        Logout
+
+                                    </button>
+
+                                </form>
+
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+
+                                <a class="nav-link"
+                                   asp-area="Identity"
+                                   asp-page="/Account/Login">
+                                    Login
+                                </a>
+
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a class="btn btn-light gog-register-btn ms-lg-2"
+                                   asp-area="Identity"
+                                   asp-page="/Account/Register">
+                                    Register
+                                </a>
+
+                            </li>
+                        }
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        @RenderBody()
+
+    </main>
+
+
+    <footer class="gog-footer">
+
+        <div class="container">
+
+            <div class="row g-4">
+
+                <div class="col-md-5">
+
+                    <h5 class="fw-bold">
+                        Gift of the Givers
+                    </h5>
+
+                    <p>
+                        A humanitarian relief organisation committed
+                        to providing assistance to communities affected
+                        by disasters and crises.
+                    </p>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <h6 class="fw-bold">
+                        Quick Links
+                    </h6>
+
+                    <ul class="list-unstyled">
+
+                        <li>
+                            <a asp-page="/About/Index">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a asp-page="/Donate/Index">
+                                Donate
+                            </a>
+                        </li>
+
+                        <li>
+                            <a asp-page="/Volunteer/Index">
+                                Volunteer
+                            </a>
+                        </li>
+
+                        <li>
+                            <a asp-page="/Contact/Index">
+                                Contact
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <h6 class="fw-bold">
+                        Get Involved
+                    </h6>
+
+                    <p>
+                        Every contribution can help make a difference.
+                    </p>
+
+                    <a asp-page="/Donate/Index"
+                       class="btn btn-primary">
+                        Donate Today
+                    </a>
+
+                </div>
+
+            </div>
+
+            <hr />
+
+            <div class="text-center">
+
+                <small>
+                    © @DateTime.Now.Year Gift of the Givers 
+                 
+                </small>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/site.js"
+            asp-append-version="true"></script>
+
+    @await RenderSectionAsync(
+    "Scripts",
+        required: false)
+
+</body>
+
+</html>

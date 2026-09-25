@@ -1,0 +1,198 @@
+﻿@page
+@model GiftoftheGiverz.Pages.Contact.IndexModel
+
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<div class="contact-page">
+
+    <!-- Page Header -->
+    <section class="contact-hero">
+        <div class="container text-center">
+
+            <span class="section-label">GET IN TOUCH</span>
+
+            <h1>Contact Us</h1>
+
+            <p>
+                Have a question, need assistance, or want to learn more
+                about our humanitarian work? We are here to help.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- Contact Content -->
+    <section class="container contact-content">
+
+        <div class="row g-4">
+
+            <!-- Contact Information -->
+            <div class="col-lg-5">
+
+                <div class="contact-info-card">
+
+                    <span class="section-label">CONTACT INFORMATION</span>
+
+                    <h2>Let's Connect</h2>
+
+                    <p>
+                        Whether you have a question about donations,
+                        volunteering or our humanitarian projects,
+                        our team is here to assist you.
+                    </p>
+
+
+                    <div class="contact-detail">
+
+                        <div class="contact-detail-icon">
+                            ✉
+                        </div>
+
+                        <div>
+                            <h5>Email</h5>
+                            <p>info@giftofthegivers.org</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-detail">
+
+                        <div class="contact-detail-icon">
+                            ☎
+                        </div>
+
+                        <div>
+                            <h5>Telephone</h5>
+                            <p>+27 11 621 0000</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-detail">
+
+                        <div class="contact-detail-icon">
+                            📍
+                        </div>
+
+                        <div>
+                            <h5>Location</h5>
+                            <p>South Africa</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Contact Form -->
+            <div class="col-lg-7">
+
+                <div class="contact-form-card">
+
+                    <span class="section-label">SEND A MESSAGE</span>
+
+                    <h2>How can we help?</h2>
+
+                    <p class="form-description">
+                        Complete the form below and our team will be able
+                        to respond to your enquiry.
+                    </p>
+
+
+                    @if (TempData["Message"] != null)
+                    {
+                        <div class="success-message">
+                            @TempData["Message"]
+                        </div>
+                    }
+
+
+                    <form method="post">
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+
+                                <label class="form-label">
+                                    Full Name
+                                </label>
+
+                                <input type="text"
+                                       class="form-control"
+                                       name="FullName"
+                                       placeholder="Enter your name"
+                                       required />
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="form-label">
+                                    Email Address
+                                </label>
+
+                                <input type="email"
+                                       class="form-control"
+                                       name="Email"
+                                       placeholder="Enter your email"
+                                       required />
+
+                            </div>
+
+
+                            <div class="col-12">
+
+                                <label class="form-label">
+                                    Subject
+                                </label>
+
+                                <input type="text"
+                                       class="form-control"
+                                       name="Subject"
+                                       placeholder="What is your enquiry about?"
+                                       required />
+
+                            </div>
+
+
+                            <div class="col-12">
+
+                                <label class="form-label">
+                                    Message
+                                </label>
+
+                                <textarea class="form-control"
+                                          name="Message"
+                                          rows="6"
+                                          placeholder="Write your message here..."
+                                          required></textarea>
+
+                            </div>
+
+                        </div>
+
+
+                        <button type="submit"
+                                class="contact-submit-btn">
+                            Send Message
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>

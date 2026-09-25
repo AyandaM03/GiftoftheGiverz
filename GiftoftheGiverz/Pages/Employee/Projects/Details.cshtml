@@ -1,0 +1,119 @@
+﻿@page "{id:int}"
+@model GiftoftheGiverz.Pages.Employee.Projects.DetailsModel
+
+@{
+    ViewData["Title"] = "Project Details";
+}
+
+<div class="container py-5">
+
+    @if (Model.Project == null)
+    {
+        <div class="alert alert-danger">
+            The requested project could not be found.
+        </div>
+    }
+    else
+    {
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <div>
+                <h1 class="fw-bold">
+                    @Model.Project.Name
+                </h1>
+
+                <span class="badge bg-primary">
+                    @Model.Project.Status
+                </span>
+            </div>
+
+            <a asp-page="/Employee/Updates/Create"
+               asp-route-projectId="@Model.Project.ReliefProjectId"
+               class="btn btn-primary">
+                + Post Update
+            </a>
+
+        </div>
+
+        <div class="card shadow-sm border-0 mb-5">
+
+            <div class="card-body p-4">
+
+                <h4>Project Information</h4>
+
+                <p class="mt-3">
+                    @Model.Project.Description
+                </p>
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <strong>Location</strong>
+                        <p>@Model.Project.Location</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <strong>Start Date</strong>
+                        <p>
+                            @Model.Project.StartDate.ToString("dd MMMM yyyy")
+                        </p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <strong>Created</strong>
+                        <p>
+                            @Model.Project.CreatedDate.ToString("dd MMMM yyyy")
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <h2 class="fw-bold mb-4">
+            Project Updates
+        </h2>
+
+        @if (!Model.Project.Updates.Any())
+        {
+            <div class="alert alert-info">
+                No updates have been posted for this project yet.
+            </div>
+        }
+        else
+        {
+            @foreach (var update in Model.Project.Updates
+                .OrderByDescending(u => u.DatePosted))
+            {
+                <div class="card shadow-sm border-0 mb-3">
+
+                    <div class="card-body">
+
+                        <h5 class="fw-bold">
+                            @update.Title
+                        </h5>
+
+                        <small class="text-muted">
+                            Posted
+                            @update.DatePosted.ToString("dd MMMM yyyy HH:mm")
+                        </small>
+
+                        <p class="mt-3 mb-0">
+                            @update.Content
+                        </p>
+
+                    </div>
+
+                </div>
+            }
+        }
+
+        <a asp-page="./Index"
+           class="btn btn-outline-secondary mt-3">
+            Back to Projects
+        </a>
+    }
+
+</div>

@@ -1,0 +1,99 @@
+﻿@page
+@model GiftoftheGiverz.Pages.Employee.Volunteers.DashboardModel
+
+@{
+    ViewData["Title"] = "Volunteer Signups";
+}
+
+<div class="container py-5">
+
+    <div class="mb-4">
+
+        <h1 class="fw-bold">
+            Volunteer Signups
+        </h1>
+
+        <p class="text-muted">
+            Review people who have registered their interest
+            in volunteering.
+        </p>
+
+    </div>
+
+    <div class="card shadow-sm border-0">
+
+        <div class="card-body">
+
+            @if (!Model.Volunteers.Any())
+            {
+                <div class="alert alert-info mb-0">
+                    No volunteer registrations have been submitted yet.
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+
+                    <table class="table table-hover align-middle">
+
+                        <thead class="table-dark">
+
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Skills</th>
+                                <th>Availability</th>
+                                <th>Registered</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var volunteer in Model.Volunteers)
+                            {
+                                <tr>
+
+                                    <td>
+                                        <strong>
+                                            @volunteer.FullName
+                                        </strong>
+                                    </td>
+
+                                    <td>
+                                        @volunteer.Email
+                                    </td>
+
+                                    <td>
+                                        @(volunteer.Phone ?? "Not provided")
+                                    </td>
+
+                                    <td>
+                                        @volunteer.Skills
+                                    </td>
+
+                                    <td>
+                                        @volunteer.Availability
+                                    </td>
+
+                                    <td>
+                                        @volunteer.RegisteredDate
+                                        
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+</div>

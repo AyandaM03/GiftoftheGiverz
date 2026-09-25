@@ -1,0 +1,124 @@
+﻿@page
+@model GiftoftheGiverz.Pages.Employee.Updates.CreateModel
+
+@{
+    ViewData["Title"] = "Post Project Update";
+}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="card shadow">
+
+                <div class="card-body p-4">
+
+                    <h1 class="mb-4">
+                        Post Project Update
+                    </h1>
+
+                    <p class="text-muted">
+                        Select a relief project and provide an update
+                        for employees and supporters.
+                    </p>
+
+                    <form method="post">
+
+                        <div asp-validation-summary="ModelOnly"
+                             class="text-danger mb-3">
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label asp-for="ProjectUpdate.ReliefProjectId"
+                                   class="form-label">
+                                Relief Project
+                            </label>
+
+                            <select asp-for="ProjectUpdate.ReliefProjectId"
+                                    asp-items="Model.ReliefProjects"
+                                    class="form-select">
+
+                                <option value="">
+                                    -- Select a project --
+                                </option>
+
+                            </select>
+
+                            <span asp-validation-for="ProjectUpdate.ReliefProjectId"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label asp-for="ProjectUpdate.Title"
+                                   class="form-label">
+                                Update Title
+                            </label>
+
+                            <input asp-for="ProjectUpdate.Title"
+                                   class="form-control"
+                                   placeholder="Enter update title" />
+
+                            <span asp-validation-for="ProjectUpdate.Title"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label asp-for="ProjectUpdate.Content"
+                                   class="form-label">
+                                Update
+                            </label>
+
+                            <textarea asp-for="ProjectUpdate.Content"
+                                      class="form-control"
+                                      rows="6"
+                                      placeholder="Describe the latest project progress...">
+                            </textarea>
+
+                            <span asp-validation-for="ProjectUpdate.Content"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+
+                        <div class="d-flex gap-2">
+
+                            <button type="submit"
+                                    class="btn btn-primary">
+                                Publish Update
+                            </button>
+
+                            <a asp-page="/Employee/Projects/Index"
+                               class="btn btn-outline-secondary">
+                                Cancel
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

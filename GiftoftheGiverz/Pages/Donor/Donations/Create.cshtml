@@ -1,0 +1,207 @@
+﻿@page
+@model GiftoftheGiverz.Pages.Donor.Donations.CreateModel
+
+@{
+    ViewData["Title"] = "Make a Donation";
+}
+
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+        <h1 class="fw-bold">Make a Donation</h1>
+        <p class="lead text-muted">
+            Your contribution helps provide humanitarian assistance
+            to communities affected by crises.
+        </p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4 p-md-5">
+
+                    <form method="post">
+
+                        <div asp-validation-summary="ModelOnly"
+                             class="text-danger mb-3">
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="Donation.Amount"
+                                   class="form-label fw-semibold">
+                                Donation Amount
+                            </label>
+
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    Amount
+                                </span>
+
+                                <input asp-for="Donation.Amount"
+                                       class="form-control"
+                                       type="number"
+                                       step="0.01"
+                                       min="1"
+                                       placeholder="Enter amount" />
+                            </div>
+
+                            <span asp-validation-for="Donation.Amount"
+                                  class="text-danger">
+                            </span>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="Donation.Currency"
+                                   class="form-label fw-semibold">
+                                Currency
+                            </label>
+
+                            <select asp-for="Donation.Currency"
+                                    class="form-select">
+                                <option value="ZAR">
+                                    South African Rand (ZAR)
+                                </option>
+
+                                <option value="USD">
+                                    US Dollar (USD)
+                                </option>
+
+                                <option value="EUR">
+                                    Euro (EUR)
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="Donation.DonationType"
+                                   class="form-label fw-semibold">
+                                Donation Type
+                            </label>
+
+                            <select asp-for="Donation.DonationType"
+                                    class="form-select"
+                                    id="donationType">
+
+                                <option value="One-Time">
+                                    One-Time Donation
+                                </option>
+
+                                <option value="Recurring">
+                                    Recurring Donation
+                                </option>
+
+                            </select>
+                        </div>
+
+                        <div class="mb-4"
+                             id="frequencyContainer"
+                             style="display:none;">
+
+                            <label asp-for="Donation.RecurringFrequency"
+                                   class="form-label fw-semibold">
+                                Recurring Frequency
+                            </label>
+
+                            <select asp-for="Donation.RecurringFrequency"
+                                    class="form-select">
+
+                                <option value="">
+                                    Select frequency
+                                </option>
+
+                                <option value="Monthly">
+                                    Monthly
+                                </option>
+
+                                <option value="Quarterly">
+                                    Quarterly
+                                </option>
+
+                                <option value="Annually">
+                                    Annually
+                                </option>
+
+                            </select>
+
+                            <span asp-validation-for="Donation.RecurringFrequency"
+                                  class="text-danger">
+                            </span>
+                        </div>
+
+                        <div class="form-check mb-4">
+
+                            <input asp-for="Donation.IsAnonymous"
+                                   class="form-check-input"
+                                   id="anonymousDonation" />
+
+                            <label class="form-check-label"
+                                   for="anonymousDonation">
+                                Make this donation anonymous
+                            </label>
+
+                        </div>
+
+                        @if (User.Identity?.IsAuthenticated != true)
+                        {
+                            <div class="alert alert-info">
+                                <strong>Guest donation</strong><br />
+                                You are donating as a guest.
+                                You can also register for an account
+                                to view your donation history.
+                            </div>
+                        }
+
+                        <div class="d-grid">
+
+                            <button type="submit"
+                                    class="btn btn-primary btn-lg">
+                                Donate Now
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+
+        const donationType =
+            document.getElementById("donationType");
+
+        const frequencyContainer =
+            document.getElementById("frequencyContainer");
+
+        function updateFrequency() {
+
+            if (donationType.value === "Recurring") {
+
+                frequencyContainer.style.display = "block";
+
+            } else {
+
+                frequencyContainer.style.display = "none";
+
+            }
+        }
+
+        donationType.addEventListener(
+            "change",
+            updateFrequency
+        );
+
+        updateFrequency();
+
+    </script>
+}

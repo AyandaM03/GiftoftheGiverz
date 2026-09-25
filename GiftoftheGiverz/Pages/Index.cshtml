@@ -1,0 +1,239 @@
+﻿@page
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<section class="hero-section">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <span class="badge bg-light text-dark mb-3 px-3 py-2">
+                HUMANITARIAN RELIEF
+            </span>
+
+            <h1>
+                Hope in Action.
+                Help Where It Matters.
+            </h1>
+
+            <p class="mt-4 mb-4">
+                Supporting communities affected by disasters and
+                crises through humanitarian assistance, donations
+                and dedicated volunteers.
+            </p>
+
+            <div class="d-flex flex-wrap gap-3">
+
+                <a asp-page="/Donate/Index"
+                   class="btn btn-primary btn-lg px-4">
+                    Donate Now
+                </a>
+
+                <a asp-page="/Volunteer/Index"
+                   class="btn btn-outline-light btn-lg px-4">
+                    Become a Volunteer
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <h2>
+                How You Can Help
+            </h2>
+
+            <p>
+                There are several ways you can contribute to
+                humanitarian relief efforts.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-heart-fill"></i>
+                    </div>
+
+                    <h4>
+                        Donate
+                    </h4>
+
+                    <p class="text-muted">
+                        Make a one-time or recurring contribution
+                        to support humanitarian relief initiatives.
+                    </p>
+
+                    <a asp-page="/Donate/Index"
+                       class="btn btn-outline-primary">
+                        Donate
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+
+                    <h4>
+                        Volunteer
+                    </h4>
+
+                    <p class="text-muted">
+                        Share your skills, experience and time to
+                        help communities in need.
+                    </p>
+
+                    <a asp-page="/Volunteer/Index"
+                       class="btn btn-outline-primary">
+                        Volunteer
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-globe2"></i>
+                    </div>
+
+                    <h4>
+                        Relief Projects
+                    </h4>
+
+                    <p class="text-muted">
+                        Learn about humanitarian projects and
+                        ongoing relief efforts.
+                    </p>
+
+                    <a asp-page="/About/Index"
+                       class="btn btn-outline-primary">
+                        Learn More
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="py-5 bg-white">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+
+                <img src="https://images.unsplash.com/photo-1594708767771-a7502209ff51?auto=format&fit=crop&w=1000&q=80"
+                     class="img-fluid rounded-4 shadow"
+                     alt="Humanitarian relief workers" />
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <span class="text-uppercase fw-bold small">
+                    Our Mission
+                </span>
+
+                <h2 class="fw-bold mt-2">
+                    Making a meaningful difference
+                </h2>
+
+                <p class="text-muted">
+                    Gift of the Givers focuses on providing rapid
+                    humanitarian assistance to communities affected
+                    by emergencies and disasters.
+                </p>
+
+                <p class="text-muted">
+                    Through donors, volunteers and relief projects,
+                    communities can receive support when they need
+                    it most.
+                </p>
+
+                <a asp-page="/About/Index"
+                   class="btn btn-primary">
+                    About Us
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="feature-card text-center">
+
+            <h2 class="fw-bold">
+                Ready to Make a Difference?
+            </h2>
+
+            <p class="text-muted">
+                Every contribution can help support humanitarian
+                relief efforts.
+            </p>
+
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <a asp-page="/Donate/Index"
+                   class="btn btn-primary btn-lg">
+                    Donate Today
+                </a>
+
+                <a asp-page="/Volunteer/Index"
+                   class="btn btn-outline-primary btn-lg">
+                    Join Our Volunteers
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

@@ -1,0 +1,569 @@
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f8f9fa;
+    color: #212529;
+}
+
+
+/* =========================
+   NAVIGATION
+   ========================= */
+
+/* Primary navbar styling for contrast and brand visibility */
+.gog-navbar {
+    background: #111827;
+    padding: 0.7rem 0;
+    border-bottom: 4px solid #d4a017;
+}
+
+/* Logo container */
+.gog-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #111827;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+/* Brand name - make it clearly visible on dark navbar */
+.gog-brand-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1;
+}
+
+/* Tagline below brand name */
+.gog-tagline {
+    font-size: 0.75rem;
+    opacity: 0.85;
+    color: #e5e7eb;
+    margin-top: -2px;
+}
+
+.gog-navbar .nav-link {
+    color: rgba(255,255,255,0.92);
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
+    transition: 0.15s ease;
+}
+
+.gog-navbar .nav-link:hover {
+    color: #ffffff;
+}
+
+/* Register/login button contrasts on dark navbar */
+.gog-register-btn {
+    color: #111827;
+    font-weight: 600;
+}
+
+
+/* =========================
+   HERO SECTION
+   ========================= */
+
+.hero-section {
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient( rgba(17, 24, 39, 0.78), rgba(17, 24, 39, 0.78) ), url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1800&q=80") center / cover;
+    color: #ffffff;
+}
+
+.hero-content {
+    max-width: 720px;
+}
+
+    .hero-content h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 800;
+        line-height: 1.05;
+        margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+        font-size: 1.15rem;
+        line-height: 1.7;
+        max-width: 650px;
+    }
+
+    .hero-content .badge {
+        letter-spacing: 1px;
+        font-weight: 700;
+    }
+
+
+/* =========================
+   SECTION HEADINGS
+   ========================= */
+
+.section-heading {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+    .section-heading h2 {
+        font-weight: 800;
+        margin-bottom: 0.75rem;
+    }
+
+    .section-heading p {
+        color: #6b7280;
+        margin-bottom: 0;
+    }
+
+
+
+}
+
+/* =========================
+   BUTTONS
+   ========================= */
+
+.btn-primary {
+    background: #b8860b;
+    border-color: #b8860b;
+}
+
+.btn-primary:hover {
+    background: #967008;
+    border-color: #967008;
+}
+
+.btn-outline-primary {
+    color: #967008;
+    border-color: #b8860b;
+}
+
+.btn-outline-primary:hover {
+    background: #b8860b;
+    border-color: #b8860b;
+}
+
+/* =========================
+   CARDS
+   ========================= */
+
+.feature-card {
+    height: 100%;
+    padding: 2rem;
+    background: white;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.1);
+}
+
+.feature-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f4f6;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* =========================
+   SECTION STYLING
+   ========================= */
+
+.section-heading {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.section-heading h2 {
+    font-weight: 800;
+}
+
+.section-heading p {
+    color: #6b7280;
+}
+
+/* =========================
+   FORMS
+   ========================= */
+
+.form-control,
+.form-select {
+    border-radius: 8px;
+    padding: 0.75rem 0.9rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #b8860b;
+    box-shadow: 0 0 0 0.2rem rgba(184,134,11,0.12);
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.gog-footer {
+    margin-top: 5rem;
+    padding: 3rem 0 1.5rem;
+    background: #111827;
+    color: #d1d5db;
+}
+
+.gog-footer h5,
+.gog-footer h6 {
+    color: #ffffff;
+}
+
+.gog-footer a {
+    color: #d1d5db;
+    text-decoration: none;
+}
+
+.gog-footer a:hover {
+    color: #ffffff;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 991px) {
+    .gog-navbar .nav-link {
+        margin: 0.35rem 0;
+    }
+
+    .gog-register-btn {
+        display: inline-block;
+        margin-top: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        min-height: 420px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.1rem;
+    }
+}
+
+/* =========================================
+   SITE LOGO
+   ========================================= */
+
+.site-logo {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    margin-right: 10px;
+}
+                        
+/* =========================================
+   AUTH PAGES
+   ========================================= */
+
+/* Kept auth page styling - useful for login/register */
+.auth-page {
+    min-height: calc(100vh - 80px);
+    padding: 60px 20px;
+    background: #f5f1e8;
+}
+
+.auth-container {
+    max-width: 1050px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    background: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(24, 35, 63, 0.12);
+}
+
+
+/* Left branding section */
+
+.auth-branding {
+    padding: 55px 45px;
+    background: #18233f;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth-logo {
+    width: 190px;
+    height: auto;
+    margin-bottom: 40px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.auth-label {
+    color: #cbb9df;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.auth-branding h1 {
+    margin: 12px 0 18px;
+    font-size: 2.6rem;
+    line-height: 1.15;
+    font-weight: 700;
+}
+
+.auth-branding > p {
+    color: #d8dce5;
+    line-height: 1.7;
+    max-width: 450px;
+}
+
+
+/* Register highlights */
+
+.auth-highlight {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    margin-top: 25px;
+}
+
+.highlight-number {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: #765b98;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.auth-highlight strong {
+    display: block;
+    margin-bottom: 3px;
+}
+
+.auth-highlight span {
+    display: block;
+    color: #cdd1dc;
+    font-size: 0.88rem;
+}
+
+
+/* Form section */
+
+.auth-card {
+    padding: 55px 50px;
+    background: #ffffff;
+}
+
+.auth-card-header {
+    margin-bottom: 30px;
+}
+
+.auth-card-header h2 {
+    color: #18233f;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 8px 0;
+}
+
+.auth-card-header p {
+    margin: 0;
+    color: #70747d;
+}
+
+
+/* Form fields */
+
+.auth-field {
+    margin-bottom: 20px;
+}
+
+.auth-field label {
+    display: block;
+    margin-bottom: 7px;
+    color: #18233f;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.auth-field .form-control {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #ddd8e7;
+    border-radius: 10px;
+    color: #18233f;
+    background: #ffffff;
+}
+
+.auth-field .form-control:focus {
+    border-color: #765b98;
+    box-shadow: 0 0 0 3px rgba(118, 91, 152, 0.12);
+}
+
+
+/* Remember me and forgot password */
+
+.auth-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0 25px;
+    font-size: 0.88rem;
+}
+
+.auth-options a,
+.auth-bottom-text a {
+    color: #765b98;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-options a:hover,
+.auth-bottom-text a:hover {
+    color: #5f477e;
+    text-decoration: underline;
+}
+
+
+/* Main button */
+
+.auth-submit {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #765b98;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: 0.2s ease;
+}
+
+.auth-submit:hover {
+    background: #5f477e;
+    transform: translateY(-1px);
+}
+
+
+/* Divider */
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 28px 0 20px;
+    color: #aaa;
+    font-size: 0.75rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: "";
+    height: 1px;
+    background: #e5e2e8;
+    flex: 1;
+}
+
+
+/* Bottom text */
+
+.auth-bottom-text {
+    text-align: center;
+    margin: 0;
+    color: #6d7078;
+    font-size: 0.9rem;
+}
+
+
+/* Validation */
+
+.auth-field .text-danger {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.8rem;
+}
+
+
+/* Mobile */
+
+@media (max-width: 850px) {
+
+    .auth-container {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-branding {
+        padding: 40px 35px;
+    }
+
+    .auth-logo {
+        margin-bottom: 25px;
+    }
+
+    .auth-card {
+        padding: 40px 30px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .auth-page {
+        padding: 30px 15px;
+    }
+
+    .auth-branding h1 {
+        font-size: 2.1rem;
+    }
+
+    .auth-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+/* =========================================
+   NAVBAR BRAND
+   ========================================= */
+
+.navbar-brand {
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+.navbar-brand:hover {
+    color: #ffffff !important;
+}
+
+.navbar-brand span {
+    color: #ffffff !important;
+}

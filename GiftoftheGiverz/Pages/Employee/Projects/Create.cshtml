@@ -1,0 +1,151 @@
+﻿@page
+@model GiftoftheGiverz.Pages.Employee.Projects.CreateModel
+
+@{
+    ViewData["Title"] = "Create Relief Project";
+}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="mb-4">
+                <h1 class="fw-bold">Create Relief Project</h1>
+                <p class="text-muted">
+                    Add a new humanitarian relief project.
+                </p>
+            </div>
+
+            <div class="card shadow-sm border-0">
+
+                <div class="card-body p-4 p-md-5">
+
+                    <form method="post">
+
+                        <div asp-validation-summary="ModelOnly"
+                             class="text-danger mb-3">
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label asp-for="ReliefProject.Name"
+                                   class="form-label fw-semibold">
+                                Project Name
+                            </label>
+
+                            <input asp-for="ReliefProject.Name"
+                                   class="form-control"
+                                   placeholder="Enter project name" />
+
+                            <span asp-validation-for="ReliefProject.Name"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label asp-for="ReliefProject.Description"
+                                   class="form-label fw-semibold">
+                                Description
+                            </label>
+
+                            <textarea asp-for="ReliefProject.Description"
+                                      class="form-control"
+                                      rows="5"
+                                      placeholder="Describe the relief project">
+                            </textarea>
+
+                            <span asp-validation-for="ReliefProject.Description"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label asp-for="ReliefProject.Location"
+                                   class="form-label fw-semibold">
+                                Location
+                            </label>
+
+                            <input asp-for="ReliefProject.Location"
+                                   class="form-control"
+                                   placeholder="e.g. KwaZulu-Natal, South Africa" />
+
+                            <span asp-validation-for="ReliefProject.Location"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label asp-for="ReliefProject.Status"
+                                   class="form-label fw-semibold">
+                                Status
+                            </label>
+
+                            <select asp-for="ReliefProject.Status"
+                                    class="form-select">
+
+                                <option value="Planned">
+                                    Planned
+                                </option>
+
+                                <option value="Ongoing">
+                                    Ongoing
+                                </option>
+
+                                <option value="Completed">
+                                    Completed
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label asp-for="ReliefProject.StartDate"
+                                   class="form-label fw-semibold">
+                                Start Date
+                            </label>
+
+                            <input asp-for="ReliefProject.StartDate"
+                                   type="date"
+                                   class="form-control" />
+
+                        </div>
+
+                        <div class="d-flex gap-2">
+
+                            <button type="submit"
+                                    class="btn btn-primary">
+                                Create Project
+                            </button>
+
+                            <a asp-page="./Index"
+                               class="btn btn-outline-secondary">
+                                Cancel
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

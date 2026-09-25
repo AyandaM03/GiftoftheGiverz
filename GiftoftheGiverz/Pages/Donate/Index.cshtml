@@ -1,0 +1,76 @@
+﻿@page
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Donate";
+}
+
+<div class="container py-5">
+
+    <div class="row align-items-center">
+
+        <div class="col-lg-7">
+
+            <h1 class="display-5 fw-bold">
+                Make a Difference
+            </h1>
+
+            <p class="lead">
+                Your donation helps Gift of the Givers provide
+                humanitarian assistance to people and communities
+                affected by disasters and crises.
+            </p>
+
+            <p>
+                Choose between a once-off contribution or a recurring
+                donation. Donations can be made in ZAR, USD or EUR.
+            </p>
+
+            <a asp-page="/Donor/Donations/Create"
+               class="btn btn-primary btn-lg">
+                Make a Donation
+            </a>
+
+        </div>
+
+        <div class="col-lg-5 mt-4 mt-lg-0">
+
+            <div class="card shadow-sm border-0">
+
+                <div class="card-body p-4">
+
+                    <h4>Donation Options</h4>
+
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">
+                            ✓ One-time donations
+                        </li>
+
+                        <li class="list-group-item">
+                            ✓ Recurring donations
+                        </li>
+
+                        <li class="list-group-item">
+                            ✓ ZAR, USD and EUR
+                        </li>
+
+                        <li class="list-group-item">
+                            ✓ Anonymous donations
+                        </li>
+
+                        <li class="list-group-item">
+                            ✓ Prototype tax certificate
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

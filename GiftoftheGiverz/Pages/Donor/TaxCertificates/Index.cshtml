@@ -1,0 +1,182 @@
+﻿@page
+@model GiftoftheGiverz.Pages.Donor.TaxCertificates.IndexModel
+
+@{
+    ViewData["Title"] = "Donation Tax Certificate";
+}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="card shadow">
+
+                <div class="card-body p-5">
+
+                    <div class="text-center mb-4">
+
+                        <h1 class="fw-bold">
+                            Gift of the Givers
+                        </h1>
+
+                        <h3>
+                            Donation Tax Certificate
+                        </h3>
+
+                        <p class="text-muted">
+                            Prototype Certificate
+                        </p>
+
+                    </div>
+
+                    @if (Model.Certificate != null &&
+                         Model.Donation != null)
+                    {
+                        <div class="border rounded p-4">
+
+                            <div class="row mb-3">
+
+                                <div class="col-sm-6">
+                                    <strong>
+                                        Certificate Number
+                                    </strong>
+
+                                    <p>
+                                        @Model.Certificate.CertificateNumber
+                                    </p>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <strong>
+                                        Issue Date
+                                    </strong>
+
+                                    <p>
+                                        @Model.Certificate.IssuedDate.ToString("dd MMMM yyyy")
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <hr />
+
+
+                            <div class="row mb-3">
+
+                                <div class="col-sm-6">
+
+                                    <strong>
+                                        Donation Reference
+                                    </strong>
+
+                                    <p>
+                                        @Model.Donation.ReferenceNumber
+                                    </p>
+
+                                </div>
+
+                                <div class="col-sm-6">
+
+                                    <strong>
+                                        Donation Date
+                                    </strong>
+
+                                    <p>
+                                        @Model.Donation.DonationDate.ToString("dd MMMM yyyy")
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="row mb-3">
+
+                                <div class="col-sm-6">
+
+                                    <strong>
+                                        Donation Amount
+                                    </strong>
+
+                                    <p class="fs-5">
+                                        @Model.Donation.Currency
+                                        @Model.Donation.Amount.ToString("N2")
+                                    </p>
+
+                                </div>
+
+                                <div class="col-sm-6">
+
+                                    <strong>
+                                        Donation Type
+                                    </strong>
+
+                                    <p>
+                                        @Model.Donation.DonationType
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="mb-3">
+
+                                <strong>
+                                    Donor Status
+                                </strong>
+
+                                <p>
+                                    @(Model.Donation.IsAnonymous
+                                        ? "Anonymous Donor"
+                                        : "Registered Donor")
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="alert alert-info mt-4">
+
+                            <strong>Prototype Notice</strong>
+
+                            <p class="mb-0 mt-2">
+                               Thanks againg for the donation!
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="text-center mt-4">
+
+                            <button onclick="window.print()"
+                                    class="btn btn-primary">
+
+                                Print / Save Certificate
+
+                            </button>
+
+                            <a asp-page="/Donor/Donations/History"
+                               class="btn btn-outline-secondary ms-2">
+
+                                Donation History
+
+                            </a>
+
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

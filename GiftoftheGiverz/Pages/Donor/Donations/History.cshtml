@@ -1,0 +1,96 @@
+﻿@page
+@model GiftoftheGiverz.Pages.Donor.Donations.HistoryModel
+
+@{
+    ViewData["Title"] = "Donation History";
+}
+
+<div class="container py-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h1 class="fw-bold">Donation History</h1>
+            <p class="text-muted">
+                View your previous contributions.
+            </p>
+        </div>
+
+        <a asp-page="/Donor/Donations/Create"
+           class="btn btn-primary">
+            Make a Donation
+        </a>
+
+    </div>
+
+    @if (!Model.Donations.Any())
+    {
+        <div class="alert alert-info">
+            You have not made any donations yet.
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+
+            <table class="table table-hover align-middle">
+
+                <thead class="table-dark">
+
+                    <tr>
+                        <th>Reference</th>
+                        <th>Amount</th>
+                        <th>Type</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @foreach (var donation in Model.Donations)
+                    {
+                        <tr>
+
+                            <td>
+                                @donation.ReferenceNumber
+                            </td>
+
+                            <td>
+                                @donation.Currency
+                                @donation.Amount.ToString("N2")
+                            </td>
+
+                            <td>
+                                @donation.DonationType
+
+                                @if (donation.DonationType == "Recurring")
+                                {
+                                    <small class="text-muted d-block">
+                                        @donation.RecurringFrequency
+                                    </small>
+                                }
+                            </td>
+
+                            <td>
+                                @donation.DonationDate.ToString("dd/MM/yyyy")
+                            </td>
+
+                            <td>
+                                <span class="badge bg-success">
+                                    @donation.Status
+                                </span>
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    }
+
+</div>

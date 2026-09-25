@@ -1,0 +1,151 @@
+﻿@page
+@model GiftoftheGiverz.Pages.Volunteer.IndexModel
+
+@{
+    ViewData["Title"] = "Volunteer";
+}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="text-center mb-5">
+
+                <h1 class="fw-bold">
+                    Become a Volunteer
+                </h1>
+
+                <p class="lead text-muted">
+                    Share your skills and time to support humanitarian
+                    relief efforts.
+                </p>
+
+            </div>
+
+            <div class="card shadow-sm border-0">
+
+                <div class="card-body p-4 p-md-5">
+
+                    <form method="post">
+
+                        <div asp-validation-summary="ModelOnly"
+                             class="text-danger mb-3">
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label asp-for="Volunteer.FullName"
+                                   class="form-label fw-semibold">
+                                Full Name
+                            </label>
+
+                            <input asp-for="Volunteer.FullName"
+                                   class="form-control"
+                                   placeholder="Enter your full name" />
+
+                            <span asp-validation-for="Volunteer.FullName"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label asp-for="Volunteer.Email"
+                                   class="form-label fw-semibold">
+                                Email Address
+                            </label>
+
+                            <input asp-for="Volunteer.Email"
+                                   class="form-control"
+                                   placeholder="name@example.com" />
+
+                            <span asp-validation-for="Volunteer.Email"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label asp-for="Volunteer.Phone"
+                                   class="form-label fw-semibold">
+                                Phone Number
+                            </label>
+
+                            <input asp-for="Volunteer.Phone"
+                                   class="form-control"
+                                   placeholder="Optional" />
+
+                            <span asp-validation-for="Volunteer.Phone"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label asp-for="Volunteer.Skills"
+                                   class="form-label fw-semibold">
+                                Skills
+                            </label>
+
+                            <textarea asp-for="Volunteer.Skills"
+                                      class="form-control"
+                                      rows="4"
+                                      placeholder="e.g. First aid, logistics, IT, administration...">
+                            </textarea>
+
+                            <span asp-validation-for="Volunteer.Skills"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label asp-for="Volunteer.Availability"
+                                   class="form-label fw-semibold">
+                                Availability
+                            </label>
+
+                            <textarea asp-for="Volunteer.Availability"
+                                      class="form-control"
+                                      rows="3"
+                                      placeholder="Tell us when you are available to volunteer.">
+                            </textarea>
+
+                            <span asp-validation-for="Volunteer.Availability"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+                        <div class="d-grid">
+
+                            <button type="submit"
+                                    class="btn btn-primary btn-lg">
+                                Submit Volunteer Registration
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+
+    <partial name="_ValidationScriptsPartial" />
+
+}
