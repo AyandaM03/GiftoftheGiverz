@@ -39,6 +39,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(
 
 builder.Services.AddRazorPages();
 
+builder.Services.AddResponseCaching(); // CACHING (added)
+
 builder.Services.AddHttpClient();
 
 var app = builder.Build();
@@ -240,6 +242,8 @@ app.UseRouting();
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+app.UseResponseCaching(); // CACHING (added)
 
 
 // Razor Pages
