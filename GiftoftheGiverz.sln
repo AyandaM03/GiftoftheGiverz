@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GiftoftheGiverz.Helpers", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GiftoftheGiverz.Tests", "GiftoftheGiverz.Tests\GiftoftheGiverz.Tests.csproj", "{6D990449-9AC0-4F6D-A913-4B995DA6FD10}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GiftoftheGiverz.UITests", "GiftoftheGiverz.UITests\GiftoftheGiverz.UITests.csproj", "{FC766396-7E69-4C67-AAA7-1F60376DB8C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{6D990449-9AC0-4F6D-A913-4B995DA6FD10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D990449-9AC0-4F6D-A913-4B995DA6FD10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D990449-9AC0-4F6D-A913-4B995DA6FD10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC766396-7E69-4C67-AAA7-1F60376DB8C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC766396-7E69-4C67-AAA7-1F60376DB8C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC766396-7E69-4C67-AAA7-1F60376DB8C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC766396-7E69-4C67-AAA7-1F60376DB8C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
