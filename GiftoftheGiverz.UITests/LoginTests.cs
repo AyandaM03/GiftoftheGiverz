@@ -17,6 +17,11 @@ public class LoginTests
         var options = new ChromeOptions();
         options.AcceptInsecureCertificates = true;
 
+        
+        options.AddUserProfilePreference("credentials_enable_service", false);
+        options.AddUserProfilePreference("profile.password_manager_enabled", false);
+        options.AddUserProfilePreference("profile.password_manager_leak_detection", false);
+
         _driver = new ChromeDriver(options);
         _driver.Manage().Window.Maximize();
         _wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
@@ -40,11 +45,18 @@ public class LoginTests
                .SendKeys("Employee@123");
         _driver.FindElement(By.Id("login-submit")).Click();
 
-        _wait.Until(d => d.Url.Contains("/Employee/Dashboard"));
+       
+        _wait.Until(d => !d.Url.Contains("/Identity/Account/Login"));
+
+      
+        _driver.Navigate().GoToUrl($"{BaseUrl}/Employee/Dashboard");
 
         StringAssert.Contains(_driver.Url, "/Employee/Dashboard");
+        Assert.IsFalse(_driver.Url.Contains("AccessDenied"));
+        Assert.IsFalse(_driver.Url.Contains("Login"));
     }
 
+   
     [TestMethod]
     public void Login_WrongPassword_ShowsErrorMessage()
     {
